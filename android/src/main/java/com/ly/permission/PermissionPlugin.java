@@ -7,9 +7,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
 
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
+import androidx.core.app.ActivityCompact;
+import androidx.core.content.ContextCompact;
 
 import java.util.ArrayList;
 import java.util.List;

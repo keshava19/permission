@@ -9,6 +9,7 @@ import android.provider.Settings;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;

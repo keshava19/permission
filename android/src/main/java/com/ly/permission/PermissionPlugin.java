@@ -133,21 +133,23 @@ public class PermissionPlugin implements MethodCallHandler, PluginRegistry.Reque
 
     @Override
     public boolean onRequestPermissionsResult(int requestCode, String[] strings, int[] ints) {
-        if (requestCode == 0 && ints.length > 0) {
-            List<Integer> intList = new ArrayList<>();
-            for (int i = 0; i < ints.length; i++) {
-                if (ints[i] == PackageManager.PERMISSION_DENIED) {
-                    if (!ActivityCompat.shouldShowRequestPermissionRationale(registrar.activity(), strings[i])) {
-                        intList.add(3);
+        if(requestCode != RESULT_CANCELED) {
+            if (requestCode == 0 && ints.length > 0) {
+                List<Integer> intList = new ArrayList<>();
+                for (int i = 0; i < ints.length; i++) {
+                    if (ints[i] == PackageManager.PERMISSION_DENIED) {
+                        if (!ActivityCompat.shouldShowRequestPermissionRationale(registrar.activity(), strings[i])) {
+                            intList.add(3);
+                        } else {
+                            intList.add(1);
+                        }
                     } else {
-                        intList.add(1);
+                        intList.add(0);
                     }
-                } else {
-                    intList.add(0);
                 }
+                result.success(intList);
             }
-            result.success(intList);
+            return true;
         }
-        return true;
     }
 }

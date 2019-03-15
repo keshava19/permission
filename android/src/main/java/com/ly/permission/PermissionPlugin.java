@@ -133,7 +133,7 @@ public class PermissionPlugin implements MethodCallHandler, PluginRegistry.Reque
 
     @Override
     public boolean onRequestPermissionsResult(int requestCode, String[] strings, int[] ints) {
-        if(requestCode != RESULT_CANCELED) {
+        if(requestCode != null) {
             if (requestCode == 0 && ints.length > 0) {
                 List<Integer> intList = new ArrayList<>();
                 for (int i = 0; i < ints.length; i++) {
